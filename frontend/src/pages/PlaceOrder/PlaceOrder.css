@@ -1,0 +1,64 @@
+.place-order{
+   display: flex;
+   flex-direction: row;
+    margin-top:50px;
+    justify-content: space-between;
+
+}
+.place-order-left{
+    width: 40vw;
+    margin-right:10px;
+}
+.title{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.place-order-left input{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid gray;
+    background: rgb(250, 250, 250);
+}
+.place-order-left input:hover{
+    border: 1.5px solid green;
+}
+.multi-fields{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+}
+.payment-btn{
+  width: 100%;  
+  height: 40px;
+  background-color: tomato;
+  color:white
+}
+
+@media (max-width: 768px) {
+   
+   .place-order .place-order-left, .place-order-right{
+         width: 40vw;
+        margin-right: 0;
+    }
+}
+
+@media (max-width:450px) {
+    .place-order{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .place-order .place-order-left, .place-order-right{
+        width: 90vw;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+}
