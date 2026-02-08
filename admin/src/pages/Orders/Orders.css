@@ -1,0 +1,137 @@
+.admin-orders {
+  padding: 20px;
+  width: 100%;
+}
+
+.order-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card */
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  gap: 16px;
+}
+
+/* Left section */
+.order-info {
+  display: flex;
+  align-items: flex-start;
+  gap:30px;
+  flex-wrap: wrap;
+  flex:2;
+}
+
+.order-img {
+  width: 50px;
+  height: 50px;
+}
+
+.item-list p {
+  margin: 0;
+}
+
+.order-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.btn-processing {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-processing:hover {
+  background: #e23e3e;
+}
+
+/* Right section */
+.customer-info {
+  flex: 1;
+
+  min-width: 200px;
+  border-left: 2px solid #eee;
+  padding-left: 12px;
+}
+.customer-info p{
+    font-size: 15px;
+}
+.customer-info h4 {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+
+ .order-info {
+  display: flex;
+  align-items: flex-start;
+  gap:20px;
+  flex-wrap: wrap;
+  flex:2;
+}
+  .order-card {
+    flex-direction: column;
+  }
+
+  .customer-info {
+    display: flex;
+    justify-content: space-around;
+    gap:10px;
+    border-left: none;
+    border-top: 2px solid #eee;
+    padding-left: 0;
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+    .customer-info p{
+        font-size:10px;
+    }
+  .order-info {
+    flex-direction: column;
+  }
+
+  .btn-processing {
+    width: 100%;
+  }
+}
+
+.status-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  background-color: #fff;
+  transition: border 0.2s ease;
+}
+
+
+.status-select:focus {
+  border: 1px solid #ff4d4d;
+}
+
+
+.status-select option {
+  padding: 10px;
+}
+
+@media (max-width: 480px) {
+  .status-select {
+    width: 100%;
+  }
+}
