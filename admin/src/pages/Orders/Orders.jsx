@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './Orders.css';
 import axios from "axios";
-import { assets } from '../../assets/assets';
-const Orders = () => {
+import { assets} from '../../assets/assets';
+
+const Orders = ({url}) => {
   const [orders, setOrders] = useState([]);
+  
 
   // Fetch all orders
   const fetchOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/order/admin");
+      const response = await axios.get(`${url}/api/order/admin`);
       setOrders(response.data.data ?? []);
       // setOrders(response.data.orders ? response.data.orders : [])
     } catch (error) {
@@ -22,7 +24,7 @@ const Orders = () => {
     const newStatus = event.target.value;
 
     try {
-      const { data } = await axios.post('http://localhost:4000/api/order/status', {
+      const { data } = await axios.post(`${url}/api/order/status`, {
         orderId: id,
         status: newStatus
       });
@@ -38,14 +40,13 @@ const Orders = () => {
 
   useEffect(() => {
     fetchOrders();
-  }, []);
-  console.log(orders)
+  },[]);
 
 
   return (
     <div className="admin-orders">
       <h2>Order Page</h2>
-
+      {  orders.length>0?
       <div className="order-wrapper">
         {orders.map((order, i) => (
           <div key={i} className="order-card">
@@ -62,7 +63,7 @@ const Orders = () => {
                
               <div className="order-meta">
                 <p>Items: {order.items.length}</p>
-                <p>💰 Rs {order.amount}</p>
+                <p>Rs {order.amount}</p>
                 <select  onChange={(event) => statusUpdate(event, order._id)} value={order.state} >
                   <option value=""  defaultChecked>{order.atatus}</option>
                   <option value="Food Processing">Food Processing</option>
@@ -91,6 +92,7 @@ const Orders = () => {
           </div>
         ))}
       </div>
+     :(<p>NO any order</p>) }
     </div>
 
   )
