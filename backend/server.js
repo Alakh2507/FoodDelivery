@@ -3,7 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 
 import connectDB from './config/db.js';
-import './config/cloudinary.js'; // 🔥 VERY IMPORTANT
+import './config/cloudinary.js';
 
 import foodRouter from './routes/foodRoute.js';
 import userRouter from './routes/userRoute.js';
@@ -27,7 +27,10 @@ app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 
 app.get('/', (req, res) => {
-  res.send("hello world");
+  res.send("Backend is running ");
   
 });
 
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
