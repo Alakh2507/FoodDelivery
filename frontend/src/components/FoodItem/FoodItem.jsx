@@ -4,7 +4,7 @@ import { assets } from '../../assets/frontend_assets/assets.js';
 import { StoreContext } from '../../context/StoreContext.jsx';
 import {useNavigate} from 'react-router-dom'
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addCart, removeFromCart, url } = useContext(StoreContext);
+  const { cartItems, addCart, removeFromCart} = useContext(StoreContext);
      const navigate=useNavigate()
   // Always treat id as string (important for MongoDB _id)
   const itemId = String(id);

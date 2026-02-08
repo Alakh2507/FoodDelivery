@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
-  const { token } = useContext(StoreContext);
+  const { token,url } = useContext(StoreContext);
   const navigate = useNavigate();
 
   const fetchOrders = async () => {
@@ -14,7 +14,7 @@ const MyOrders = () => {
       if (!token) return;
 
       const response = await axios.post(
-        "http://localhost:4000/api/order/userorders",
+        `${url}/api/order/userorders`,
         {},
         { headers: { token } }
       );
