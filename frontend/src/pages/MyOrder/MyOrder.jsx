@@ -5,6 +5,7 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
+  
   const [orders, setOrders] = useState([]);
   const { token,url } = useContext(StoreContext);
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const MyOrders = () => {
   const fetchOrders = async () => {
     try {
       if (!token) return;
-
+        console.log(url)
       const response = await axios.post(
         `${url}/api/order/userorders`,
         {},

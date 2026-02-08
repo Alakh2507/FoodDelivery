@@ -2,18 +2,22 @@ import React, { useContext } from 'react';
 import './FoodItem.css';
 import { assets } from '../../assets/frontend_assets/assets.js';
 import { StoreContext } from '../../context/StoreContext.jsx';
-import {useNavigate} from 'react-router-dom'
+
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addCart, removeFromCart} = useContext(StoreContext);
-     const navigate=useNavigate()
-  // Always treat id as string (important for MongoDB _id)
+  const { cartItems, addCart, removeFromCart } = useContext(StoreContext);
+
+  // MongoDB-safe string ID
   const itemId = String(id);
   const quantity = cartItems[itemId] || 0;
 
   return (
     <div className="food-item">
-      <div  onClick={()=>{navigate("/cart");window.scrollTo(0,0)}} className="food-item-img-container">
-        <img src={image} alt={name} />
+      <div className="food-item-img-container">
+        <img
+          src={image}
+          alt={name}
+          onError={(e) => (e.target.src = assets.food_placeholder)}
+        />
 
         {quantity === 0 ? (
           <img

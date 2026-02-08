@@ -8,7 +8,7 @@ const StoreContextProvider = (props) => {
   const navigate = useNavigate();
 
   const url =import.meta.env.VITE_BACKEND_URL;
-  console.log(url);
+  // console.log(url);
 
   const [foodList, setFoodList] = useState([]);
   const [cartItems, setCartItems] = useState({});
@@ -108,6 +108,7 @@ const StoreContextProvider = (props) => {
 
   /* ================= AUTO LOAD ================= */
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchFoodList();
 
     if (token) {

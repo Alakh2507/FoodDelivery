@@ -1,63 +1,94 @@
-.food-item{
+.food-item {
     width: 100%;
-    margin: auto;
-    border-radius: 15px;
-    /* box-shadow: 0px 0px 0px #00000015; */
     background-color: rgb(233, 231, 229);
-    transition: 0.3s;
-    animation: fadeIn 0.5s;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
 
+.food-item:hover {
+    transform: scale(1.02);
 }
-.food-item-img-container img{
-    width:100%;
-    border-radius: 15px 15px 0px 0px;
+
+.food-item-img-container {
+    position: relative;
+    width: 100%;
 }
-.food-item-info{
-    padding:2px 20px 20px 20px;
+
+.food-item-img-container img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
 }
-.food-item-name-rating{
+
+/* ADD BUTTON */
+.food-item-img-container .add {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 32px;
+    cursor: pointer;
+}
+
+/* COUNTER */
+.food-item-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+.food-item-counter img {
+    width: 22px;
+    cursor: pointer;
+}
+
+/* INFO SECTION */
+.food-item-info {
+    padding: 12px 18px 18px;
+}
+
+.food-item-name-rating {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:5px 0px;
 }
-.food-item-name-rating p{
+
+.food-item-name-rating p {
     font-size: 18px;
     font-weight: 500;
 }
-.food-item-name-rating img{
+
+.food-item-name-rating img {
     width: 70px;
 }
-.food-item-desc{
+
+.food-item-desc {
     font-size: 12px;
-}
-.food-item-price{
-    font-size: 16px;
-    font-weight: 500;
-    color: tomato;
-    padding: 5px 0px;
-}
-.food-item-img-container .add {
-    position: relative;
-    width:30px;
-    cursor: pointer;
-    left:85%;
-    top:-40px;
-}
-.food-item-counter{
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-    align-items: center;
-    width:80px;
-    position: relative;
-    left:70%;
-    top:-40px;
-    background-color: white;
-    border-radius: 20px;
-}
-.food-item-counter img{
-    width:25px;
-    cursor: pointer;
+    color: #555;
+    margin: 6px 0;
 }
 
+.food-item-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: tomato;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
